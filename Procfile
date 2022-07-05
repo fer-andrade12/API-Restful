@@ -1,1 +1,1 @@
-java -jar target/app-apirest-products-1.0.0.jar
+web : java -jar target/app-apirest-products-1.0.0.jar
