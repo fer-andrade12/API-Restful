@@ -28,32 +28,31 @@ public class ProdutoResource {
 	@Autowired
 	ProdutoRepository produtoRepository;
 	
-	@GetMapping("/produtos")
+	@GetMapping("/listar-produtos")
 	@ApiOperation(value="Retorna produtos")
 	public List<Produto> listarProdutos(){
 		return produtoRepository.findAll();
-		
 	}
 	
-	@GetMapping("/produtos/{id}")
+	@GetMapping("/buscar-produto-id/{id}")
 	@ApiOperation(value="Retorna único produto")
 	public Produto listarProdutosId(@PathVariable(value="id") long id){
 		return produtoRepository.findById(id);
 	}
 	
-	@PostMapping("/produtos")
+	@PostMapping("/salvar-produto")
 	@ApiOperation(value="Salva produto")
 	public Produto salvarProduto(@RequestBody Produto produto) {
 		return produtoRepository.save(produto);
 	}
 	
-	@DeleteMapping("/produtos")
+	@DeleteMapping("/deletar-produto")
 	@ApiOperation(value="Deleta produto")
 	public void deletarProduto(@RequestBody Produto produto) {
 		produtoRepository.delete(produto);
 	}
 	
-	@PutMapping("/produtos")
+	@PutMapping("/editar-produto")
 	@ApiOperation(value="Edita produto")
 	public Produto atualizarProduto(@RequestBody Produto produto) {
 		return produtoRepository.save(produto);
